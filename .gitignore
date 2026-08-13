@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+site/node_modules/
+
+# Compiled output and caches
+dist/
+site/.next/
+site/.next-dev/
+site/next-build/
+site/next-build-visual/
+site/*.tsbuildinfo
+site/build-log.txt
+*.log
+*.zip
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+cookies.txt
+csrf.txt
+response.txt
+token.txt
+config.json
+
+# Local debugging and releases
+tmp_*
+releases/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

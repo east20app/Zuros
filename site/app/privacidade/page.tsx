@@ -1,0 +1,3 @@
+import Link from "next/link";
+export const metadata = { title: "Política de Privacidade · ZUROS APP" };
+export default function PrivacyPage() { return <main className="mx-auto max-w-3xl px-5 py-16 text-zinc-300"><Link href="/" className="text-emerald-400">← Início</Link><h1 className="mt-8 text-4xl font-semibold text-white">Política de Privacidade</h1><p className="mt-6 leading-7">Usamos os dados essenciais da sua conta Discord para autenticação e para associar aplicações, lojas e cobranças. Credenciais operacionais são protegidas e não são exibidas publicamente.</p><p className="mt-4 leading-7">Dados são mantidos pelo tempo necessário à prestação do serviço e ao cumprimento de obrigações legais. Solicitações podem ser enviadas a suporte@zuros.app.</p></main>; }

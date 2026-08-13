@@ -1,0 +1,3 @@
+import Link from "next/link";
+export const metadata = { title: "Termos de Uso · ZUROS APP" };
+export default function TermsPage() { return <main className="mx-auto max-w-3xl px-5 py-16 text-zinc-300"><Link href="/" className="text-emerald-400">← Início</Link><h1 className="mt-8 text-4xl font-semibold text-white">Termos de Uso</h1><p className="mt-6 leading-7">Ao utilizar a ZUROS, você concorda em fornecer dados legítimos, manter suas credenciais seguras e não usar a plataforma para atividades ilícitas ou que violem os termos do Discord.</p><p className="mt-4 leading-7">Planos, prazos de carência e condições de reembolso são apresentados antes da compra. Para dúvidas, escreva para suporte@zuros.app.</p></main>; }
