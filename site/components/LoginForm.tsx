@@ -26,10 +26,23 @@ export function LoginForm() {
 
     useEffect(() => { if (status === "authenticated") router.replace("/dashboard"); }, [status, router]);
 
+    // Aceita apenas caminhos internos ("/algo"), nunca URLs absolutas ou
+    // "//host". Evita open redirect a partir do parâmetro ?callbackUrl.
+    function safeCallbackUrl(): string {
+        const raw = searchParams.get("callbackUrl") || "/dashboard";
+        return raw.startsWith("/") && !raw.startsWith("//") ? raw : "/dashboard";
+    }
+
     async function handleSignIn() {
         setStarting(true);
-        await signIn("discord", { callbackUrl: searchParams.get("callbackUrl") || "/dashboard" });
-        setStarting(false);
+        try {
+            await signIn("discord", { callbackUrl: safeCallbackUrl() });
+        } catch {
+            // Se o redirecionamento não iniciar (rede/popup bloqueado), libera o
+            // botão para que o usuário possa tentar novamente.
+            setStarting(false);
+            router.replace("/login?error=OAuthSignin");
+        }
     }
 
     return <main className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-12 text-white">
