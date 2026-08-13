@@ -20,7 +20,19 @@ const features: Array<[ReactNode, string, string]> = [
 
 export const dynamic = "force-dynamic";
 export async function generateMetadata(): Promise<Metadata> {
-    return { title: "ZUROS APP · Bots Discord, vendas e hospedagem", description: "Hospede, venda e gerencie aplicações Discord em um só lugar.", openGraph: { title: "ZUROS APP", description: "Bots Discord, vendas PIX e hospedagem conectados.", type: "website", images: [{ url: "/icon.svg", width: 512, height: 512, alt: "ZUROS APP" }] } };
+    return {
+        title: "Bots Discord, vendas e hospedagem",
+        description: "Hospede, venda e gerencie aplicações Discord em um só lugar.",
+        alternates: { canonical: "/" },
+        openGraph: {
+            title: "ZUROS APP · Bots Discord, vendas e hospedagem",
+            description: "Bots Discord, vendas PIX e hospedagem conectados.",
+            type: "website",
+            url: "/",
+            images: [{ url: "/og.png", width: 1200, height: 630, alt: "ZUROS APP" }],
+        },
+        twitter: { card: "summary_large_image", title: "ZUROS APP", description: "Bots Discord, vendas PIX e hospedagem conectados.", images: ["/og.png"] },
+    };
 }
 
 export default async function HomePage() {
@@ -58,6 +70,6 @@ export default async function HomePage() {
             <section aria-label="Telemetria da plataforma" className="mx-auto grid w-full max-w-6xl gap-3 px-4 pb-10 sm:grid-cols-3 sm:px-6"><div className="zuros-card p-5"><b className="text-3xl text-emerald-400">{activeApps}</b><p className="mt-1 text-sm text-zinc-400">aplicações ativas</p></div><div className="zuros-card p-5"><b className="text-3xl text-emerald-400">{stores}</b><p className="mt-1 text-sm text-zinc-400">lojas atendidas</p></div><div className="zuros-card p-5"><b className="text-3xl text-emerald-400">{uptimeDays ? `${uptimeDays}d` : "Online"}</b><p className="mt-1 text-sm text-zinc-400">uptime do processo atual</p></div></section>
             <section id="faq" className="mx-auto w-full max-w-4xl px-4 py-20 sm:px-6"><p className="text-xs font-semibold uppercase tracking-[.22em] text-emerald-400">Dúvidas frequentes</p><h2 className="mb-8 mt-3 text-3xl font-semibold">Antes de começar</h2><FaqAccordion /></section>
         </main>
-        <footer id="suporte" className="border-t border-zinc-900/80 bg-[#07070a]/50"><div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-8 text-sm text-zinc-600 sm:flex-row sm:items-center sm:justify-between sm:px-6"><span>© 2026 ZUROS APP · Applications</span><div className="flex gap-5"><Link href="/planos" className="hover:text-white">Produtos</Link><Link href={user ? "/dashboard" : "/login"} className="hover:text-emerald-300">Acessar a plataforma</Link></div></div></footer>
+        <footer id="suporte" className="border-t border-zinc-900/80 bg-[#07070a]/50"><div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-8 text-sm text-zinc-600 sm:flex-row sm:items-center sm:justify-between sm:px-6"><span>© 2026 ZUROS APP · Applications</span><div className="flex flex-wrap gap-x-5 gap-y-2"><Link href="/planos" className="hover:text-white">Produtos</Link><Link href="/termos" className="hover:text-white">Termos</Link><Link href="/privacidade" className="hover:text-white">Privacidade</Link><Link href="/reembolso" className="hover:text-white">Reembolso</Link><Link href={user ? "/dashboard" : "/login"} className="hover:text-emerald-300">Acessar a plataforma</Link></div></div></footer>
     </div>;
 }
